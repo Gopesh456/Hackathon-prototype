@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  {%load static%}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{%static 'style/log.css'%}" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aldrich&family=Mirza:wght@500&family=Trykker&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@1,300&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="gradient"></div>
+    <div class="login">
+      <div class="glitch-wrapper">
+        <div class="glitch" data-glitch="Login">Login</div>
+      </div>
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="username">
+          UserName:
+          <input
+            type="text"
+            name="user-name"
+            id="user-el"
+            placeholder="Type your username"
+          />
+          Password:
+          <input
+            type="password"
+            name="password"
+            id="pass-el"
+            placeholder="Type your password"
+          />
+          {% if messages %}
+          <ul class="messages">
+              {% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+              {% endfor %}
+          </ul>
+          {% endif %}
+          <button class="button-52" role="button">Login</button>
+        </div>
+      </form>
+    </div>
+    <SpeedInsights />
+  </body>
+</html>

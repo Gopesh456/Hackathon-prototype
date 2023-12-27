@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static%}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{%static 'style/overview.css'%}" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  {%include 'navbar.html'%}
+  <body>
+    <div class="container-el">
+      <table class="table-el">
+        <tr>
+          <td class="ques1">
+            <a href="/question/1" ,class="links">Question 1</a>
+          </td>
+          <td class="result">{{1_QE}}</td>
+        </tr>
+        <tr>
+          <td class="ques2">
+            <a href="/question/2" ,class="links">Question 2</a>
+          </td>
+          <td class="result">{{2_QE}}</td>
+        </tr>
+        <tr>
+          <td class="ques3">
+            <a href="/question/3" ,class="links">Question 3</a>
+          </td>
+          <td class="result">{{3_QE}}</td>
+        </tr>
+        <tr>
+          <td class="ques4">
+            <a href="/question/4" ,class="links">Question 4</a>
+          </td>
+          <td class="result">{{4_QE}}</td>
+        </tr>
+        <tr>
+          <td class="ques5">
+            <a href="/question/5" ,class="links">Question 5</a>
+          </td>
+          <td class="result">{{5_QE}}</td>
+        </tr>
+        <tr>
+          <td class="ques6">
+            <a href="/question/6" ,class="links">Question 6</a>
+          </td>
+          <td class="result">{{6_QE}}</td>
+        </tr>
+        <tr>
+          <td class="ques7">
+            <a href="/question/7" ,class="links">Question 7</a>
+          </td>
+          <td class="result">{{7_QE}}</td>
+        </tr>
+        <tr>
+          <td class="ques8">
+            <a href="/question/8" ,class="links">Question 8</a>
+          </td>
+          <td class="result">{{8_QE}}</td>
+        </tr>
+        <tr>
+          <td class="ques9">
+            <a href="/question/9" ,class="links">Question 9</a>
+          </td>
+          <td class="result">{{9_QE}}</td>
+        </tr>
+        <tr>
+          <td class="ques10">
+            <a href="/question/10" ,class="links">Question 10</a>
+          </td>
+          <td class="result">{{10_QE}}</td>
+        </tr>
+      </table>
+    </div>
+    <script src="{%static 'js/overview_.js'%}"></script>
+  </body>
+</html>

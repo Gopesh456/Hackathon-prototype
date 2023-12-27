@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static%}
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{%static 'style/questions.css'%}" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="{%static 'js/ace-editor/src-min/ace.js'%}"></script>
+    <script src="{%static 'js/ace-editor/src-min/mode-javascript.js'%}"></script>
+    <script src="{%static 'js/ace-editor/src-min/ext-language_tools.js'%}"></script>
+  </head>
+  <body>
+    {%include 'navbar.html'%}
+    <div class="page">
+      <div class="questionDiv">
+        <p id="question-el"></p>
+      </div>
+      <div class="editor-container">
+        <div id="editor"></div>
+      </div>
+
+      <!-- <script src="{%static 'js/editor-console.js'%}"></script> -->
+    </div>
+
+    <div class="container">
+      <form method="POST" , id="form-el" >
+        {% csrf_token %}
+        <textarea
+          name="textarea"
+          id="hiddenfield"
+          cols="1"
+          rows="1"
+          style="visibility: hidden"
+        ></textarea>
+        <button class="submit-btn" role="button">Submit</button>
+      </form>
+    </div>
+    <script src="{%static 'js/questions.js'%}"></script>
+
+    <script>
+            $(document).ready(function () {
+              setInterval(function () {
+                $.ajax({
+                  type: "GET",
+                  url: "{% url 'getquestions'%}",
+                  success: function (response) {
+                    let ques = response.question[parseInt({{pk}})-1].question ;
+                    $('#question-el').text(ques);
+                    // console.log($('#question-el').text())
+                  },
+                  error: function (response) {
+                    console.log("An Error Occured ");
+                  },
+                });
+              }, 100);
+              $(function () {
+              $(".submit-btn").on("click", function () {
+                const userCode = codeEditor.getValue();
+                $("#hiddenfield").val(userCode);
+                // alert($("#hiddenfield").val());
+                $("form#form-el").submit();
+          });
+      });
+            });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,365 @@
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.gradient {
+  --size: 400px;
+  --speed: 50s;
+  --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
+  width: 400px;
+  height: 400px;
+  filter: blur(calc(var(--size) / 5));
+  background-image: linear-gradient(rgba(55, 235, 169, 0.85), #5b37eb);
+  animation: rotate var(--speed) var(--easing) alternate infinite;
+  border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
+  /* z-index: -1; */
+}
+
+@media (min-width: 720px) {
+  .gradient {
+    --size: 600px;
+  }
+}
+body {
+  background-color: #222;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  place-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/* This is just to transition when you change the viewport size. */
+* {
+  transition: all 0.25s ease-out;
+}
+
+.login {
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.175);
+  height: 650px;
+  width: 400px;
+  max-width: 400px;
+  max-height: 700px;
+  min-width: 100px;
+  min-height: 350px;
+  position: absolute;
+  border-radius: 10px;
+  padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.username {
+  font-family: "Mirza", serif;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  font-size: larger;
+  position: relative;
+  /* top: -40px; */
+  display: flex;
+  justify-content: center;
+}
+#user-el,
+#pass-el {
+  height: 30px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: solid 1.5px rgb(255, 255, 255);
+  background: transparent;
+  box-shadow: none;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: "Trykker", serif;
+  /* border-radius: 5px; */
+  padding-left: 10px;
+}
+
+.messages {
+  list-style-type: none;
+  color: whitesmoke;
+  font-family: "Advent Pro", "Arial Narrow", Arial, sans-serif;
+  font-size: 16px;
+  justify-self: right;
+  padding: 0px 0px;
+  font-weight: 500;
+}
+
+.button-52 {
+  font-weight: 500;
+  letter-spacing: 3px;
+  padding: 13px 20px 13px;
+  outline: 0;
+  border: 1px solid rgb(255, 255, 255);
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(242, 242, 242, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  top: 18px;
+  font-size: 20px;
+  border-radius: 10px;
+  color: white;
+  font-family: "Aldrich", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
+}
+
+.button-52:after {
+  content: "";
+  background-color: #5b37ebbd;
+  width: 100%;
+  border-radius: 10px;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.button-52:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+.glitch {
+  position: relative;
+  font-weight: 700;
+  line-height: 1.2;
+  z-index: 1;
+  font-family: "Aldrich", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  letter-spacing: 5px;
+  font-size: 55px;
+}
+
+.glitch:before {
+  content: attr(data-glitch);
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 100%;
+  color: #fff;
+
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-before 15s infinite linear alternate-reverse;
+}
+
+.glitch:after {
+  content: attr(data-glitch);
+  position: absolute;
+  top: 0;
+  left: 2px;
+  width: 100%;
+  color: #fff;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-after 3s infinite linear alternate-reverse;
+}
+
+@keyframes noise-before {
+  0% {
+    clip: rect(61px, 9999px, 52px, 0);
+  }
+
+  5% {
+    clip: rect(33px, 9999px, 144px, 0);
+  }
+
+  10% {
+    clip: rect(121px, 9999px, 115px, 0);
+  }
+
+  15% {
+    clip: rect(144px, 9999px, 162px, 0);
+  }
+
+  20% {
+    clip: rect(62px, 9999px, 180px, 0);
+  }
+
+  25% {
+    clip: rect(34px, 9999px, 42px, 0);
+  }
+
+  30% {
+    clip: rect(147px, 9999px, 179px, 0);
+  }
+
+  35% {
+    clip: rect(99px, 9999px, 63px, 0);
+  }
+
+  40% {
+    clip: rect(188px, 9999px, 122px, 0);
+  }
+
+  45% {
+    clip: rect(154px, 9999px, 14px, 0);
+  }
+
+  50% {
+    clip: rect(63px, 9999px, 37px, 0);
+  }
+
+  55% {
+    clip: rect(161px, 9999px, 147px, 0);
+  }
+
+  60% {
+    clip: rect(109px, 9999px, 175px, 0);
+  }
+
+  65% {
+    clip: rect(157px, 9999px, 88px, 0);
+  }
+
+  70% {
+    clip: rect(173px, 9999px, 131px, 0);
+  }
+
+  75% {
+    clip: rect(62px, 9999px, 70px, 0);
+  }
+
+  80% {
+    clip: rect(24px, 9999px, 153px, 0);
+  }
+
+  85% {
+    clip: rect(138px, 9999px, 40px, 0);
+  }
+
+  90% {
+    clip: rect(79px, 9999px, 136px, 0);
+  }
+
+  95% {
+    clip: rect(25px, 9999px, 34px, 0);
+  }
+
+  100% {
+    clip: rect(173px, 9999px, 166px, 0);
+  }
+}
+
+@keyframes noise-after {
+  0% {
+    clip: rect(26px, 9999px, 33px, 0);
+  }
+
+  5% {
+    clip: rect(140px, 9999px, 198px, 0);
+  }
+
+  10% {
+    clip: rect(184px, 9999px, 89px, 0);
+  }
+
+  15% {
+    clip: rect(121px, 9999px, 6px, 0);
+  }
+
+  20% {
+    clip: rect(181px, 9999px, 99px, 0);
+  }
+
+  25% {
+    clip: rect(154px, 9999px, 133px, 0);
+  }
+
+  30% {
+    clip: rect(134px, 9999px, 169px, 0);
+  }
+
+  35% {
+    clip: rect(26px, 9999px, 187px, 0);
+  }
+
+  40% {
+    clip: rect(147px, 9999px, 137px, 0);
+  }
+
+  45% {
+    clip: rect(31px, 9999px, 52px, 0);
+  }
+
+  50% {
+    clip: rect(191px, 9999px, 109px, 0);
+  }
+
+  55% {
+    clip: rect(74px, 9999px, 54px, 0);
+  }
+
+  60% {
+    clip: rect(145px, 9999px, 75px, 0);
+  }
+
+  65% {
+    clip: rect(153px, 9999px, 198px, 0);
+  }
+
+  70% {
+    clip: rect(99px, 9999px, 136px, 0);
+  }
+
+  75% {
+    clip: rect(118px, 9999px, 192px, 0);
+  }
+
+  80% {
+    clip: rect(1px, 9999px, 83px, 0);
+  }
+
+  85% {
+    clip: rect(145px, 9999px, 98px, 0);
+  }
+
+  90% {
+    clip: rect(121px, 9999px, 154px, 0);
+  }
+
+  95% {
+    clip: rect(156px, 9999px, 44px, 0);
+  }
+
+  100% {
+    clip: rect(67px, 9999px, 122px, 0);
+  }
+}
+
+@media (min-width: 768px) {
+  .button-52 {
+    padding: 13px 40px 13px;
+  }
+}
+
+@media (min-width: 320px) {
+  .login {
+    width: 350px;
+    height: 500px;
+  }
+  .gradient {
+    width: 400px;
+    height: 600px;
+  }
+}
