@@ -25,6 +25,7 @@ urlpatterns = [
     path('',include('questions.urls')),
     path('',include('user.urls')),
     path('',include('vol.urls')),
+    path('',include('vol_auto.urls')),
 
 
 ]

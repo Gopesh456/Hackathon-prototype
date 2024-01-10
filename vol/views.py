@@ -39,3 +39,6 @@ def answerChecker(request,pk):
             form.save()
             return redirect('/vol/'+str(qno))
     return render(request,'vol/answer.html',context)
+
+def open(req,pk):
+    

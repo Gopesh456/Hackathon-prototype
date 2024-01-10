@@ -1,0 +1,21 @@
+def update_value(request, pk):
+    # get the object by primary key
+    obj = MyModel.objects.get(pk=pk)
+    # update the value
+    obj.value += 1
+    # save the changes
+    obj.save()
+    # redirect to the same page or another page
+    return redirect('home')
+
+
+urlpatterns = [
+    # other paths
+    path('update_value/<int:pk>/', views.update_value, name='update_value'),
+]
+
+
+<form action="{% url 'update_value' obj.pk %}" method="POST">
+    {% csrf_token %}
+    <button type="submit">Update Value</button>
+</form>

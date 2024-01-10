@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'questions.apps.QuestionsConfig',
     'user.apps.UserConfig',
     'vol.apps.VolConfig',
+    'vol_auto',
 ]
 
 MIDDLEWARE = [
